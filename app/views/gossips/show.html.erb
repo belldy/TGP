@@ -1,0 +1,23 @@
+
+<div class="card border-success mb-3" style="max-width: 30rem;">
+  <div class="card-header bg-transparent border-success">
+    <p class="text-right text-muted">
+      <i class="fas fa-edit"></i> <%= link_to "Modify gossip", edit_gossip_path(params[:id]) %>&nbsp;&nbsp;
+      <i class="fas fa-trash-alt"></i> <%= link_to "Delete gossip", gossip_path(params[:id]), type: "submit", method: "delete", data: { confirm: "Are you sure ?" }  %>
+    </p>
+    <h1><i class="far fa-newspaper"></i> <u><%= @gossip.title %></u></h1>
+  </div>
+  <div class="card-body text-info">
+    <blockquote class="blockquote">
+      <p class="m-2"><%= @gossip.content %></p>
+        <footer class="blockquote-footer">
+          <cite title="Author">
+            <%= link_to @gossip.user.first_name + " " + @gossip.user.last_name, user_path(@user.id) %>
+          </cite>
+          from <%= @gossip.user.city.name %>
+        </footer>
+      </blockquote>
+
+
+
+

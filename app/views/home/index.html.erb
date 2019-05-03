@@ -1,0 +1,17 @@
+<h1>TGP</h1>
+<p>Welcome to The Gossip Project !</p>
+
+<div class="card-columns">
+  <% @gossips.each do |i| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= i.title %></h5>
+      <p class="card-text"><%= i.content %> </p>
+      <p class="card-subtitle mb-2 text-muted"><em>de <%= i.user.first_name %></em></p>
+      <%= link_to "See Gossip", gossip_path(i.id),:class => "btn-info btn p-1"%>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+

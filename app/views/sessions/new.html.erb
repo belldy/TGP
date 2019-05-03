@@ -1,0 +1,22 @@
+
+<div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success">
+    <h1>Log in</h1>
+  </div>
+  <%= form_tag(sessions_path, method: "post") do %>
+    <div class="card-body text-success">
+    <div class="form-group">
+      <p>Email:</p>
+      <%= text_field_tag :email, '', class: 'form-control', placeholder: '' %>
+      <br>
+      <p>Password:</p>
+      <%= password_field_tag 'password', '', class: 'form-control', placeholder: '' %>
+      <br>
+
+      <%= submit_tag "Log in", class: "btn btn-info" %>
+
+    </div>
+      <p class="card-text">Not yet a member? <%= link_to "Sign in", new_user_path %></p>
+    </div>
+    <% end %>
+</div>

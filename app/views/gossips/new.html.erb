@@ -1,0 +1,28 @@
+<h1>Create gossip</h1>
+
+<div class="card border-success mb-3 text-center" style="max-width: 30rem;">
+ <div class="card-header">
+  </div>
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+      <div class="card-body text-info">
+        <div class="form-group">
+          <%= text_field_tag 'title', @gossip.title, class: "form-control", placeholder: "The gossip's title" %>
+          <%= text_area_tag 'content', @gossip.content, class: "form-control", placeholder: "What will you gossip about ?" %>
+          <br /> <br />
+
+          <%= submit_tag "Save gossip", class: "btn btn-info" %>
+        <% end %>
+      </div>
+    </div>
+</div>
+
+    <% if @gossip.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+        <p>We were unable to save the gossip for the following reason(s) :</p>
+        <ul>
+          <% @gossip.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    </div>
+<% end %>

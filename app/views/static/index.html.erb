@@ -1,0 +1,30 @@
+<% if flash[:danger] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:danger] %>
+  </div>  
+<% end %> 
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Hello! </h1>
+      <p>Welcome to TheGossipProject! Here you can find, create, like the best gossips on the web!</p>
+    </div>
+  </div>
+
+ <div class="card-columns">
+  <% @gossip.each do |i| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= i.title %></h5>
+      <p class="card-text"><%= i.content %> </p>
+      <p class="card-subtitle mb-2 text-muted"><em>de <%= i.user.first_name %></em></p>
+      <%= link_to "See Gossip", gossip_path(i.id),:class => "btn-info btn p-1"%>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+</main>
